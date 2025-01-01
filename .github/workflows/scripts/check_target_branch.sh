@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-# Extract the base branch name from the GitHub event
 TARGET_BRANCH=$(jq -r '.pull_request.base.ref' "$GITHUB_EVENT_PATH")
 
 if [[ "$TARGET_BRANCH" != "develop-postgres" ]]; then

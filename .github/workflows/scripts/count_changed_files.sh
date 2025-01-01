@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-# Parse arguments
 while [[ "$#" -gt 0 ]]; do
   case $1 in
     --count) changed_files_count="$2"; shift ;;
@@ -10,10 +9,8 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
-# Echo the number of changed files
 echo "Number of files changed: ${changed_files_count}"
 
-# Check if the number of changed files exceeds the threshold
 threshold=100
 if [ "${changed_files_count}" -gt "${threshold}" ]; then
   echo "Error: Too many files (greater than ${threshold}) changed in the pull request."
